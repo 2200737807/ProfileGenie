@@ -117,9 +117,3 @@ background: {
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！
-
----
-
-<p align="center">
-  © 2025 All <a href="https://github.com/2200737807/ProfileGenie">绘念</a> Rights Reserved
-</p>
