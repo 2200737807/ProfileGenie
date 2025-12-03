@@ -2,7 +2,6 @@
 
 一个现代化、高性能的个人主页，支持自定义背景、双引擎搜索、响应式布局。
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub Pages](https://img.shields.io/badge/demo-online-green.svg)](https://your-username.github.io/ProfileGenie/)
 
 ## ✨ 核心特性
