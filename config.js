@@ -65,7 +65,7 @@ window.config = {
         {
             title: '工作博客',
             icon: 'fa fa-toggle-off',
-            url: 'https://twitter.com'
+            url: 'https://blog.103000.vip'
         },
         {
             title: '影视网站',
@@ -75,7 +75,7 @@ window.config = {
         {
             title: '自用导航',
             icon: 'fa fa-bars',
-            url: 'https://linkedin.com'
+            url: 'https://nav.103000.vip'
         },
     ]
 };
