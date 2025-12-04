@@ -77,5 +77,10 @@ window.config = {
             icon: 'fa fa-bars',
             url: 'https://nav.103000.vip'
         },
+        {
+            title: '代理订阅',
+            icon: 'fa fa-cloud',
+            url: 'https://submix.103000.vip'
+        },
     ]
 };
