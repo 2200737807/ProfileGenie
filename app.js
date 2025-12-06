@@ -46,7 +46,21 @@ class LandingPage {
         const { profile } = this.config;
         document.getElementById('avatar').src = profile.avatar;
         document.getElementById('name').textContent = profile.name;
-        document.getElementById('bio').textContent = profile.bio;
+        
+        // 渲染标签
+        if (profile.tags && profile.tags.length > 0) {
+            const tagsContainer = document.getElementById('tags');
+            tagsContainer.innerHTML = profile.tags.map((tag, index) => `
+                <span class="tag" style="animation-delay: ${0.6 + index * 0.1}s">
+                    <i class="fas fa-tag tag-icon"></i>
+                    ${tag}
+                </span>
+            `).join('');
+        }
+        
+        if (profile.quote) {
+            document.getElementById('quote').textContent = profile.quote;
+        }
     }
 
     // 渲染社交链接

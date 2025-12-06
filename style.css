@@ -225,12 +225,167 @@ body {
     }
 }
 
-.bio {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
+/* ========== 标签样式 ========== */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 20px auto;
     max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(240, 147, 251, 0.2));
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: tagFadeIn 0.8s ease-out forwards;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes tagFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.tag:hover::before {
+    left: 100%;
+}
+
+.tag:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: var(--primary);
+    box-shadow: 
+        0 8px 25px rgba(102, 126, 234, 0.4),
+        0 0 20px rgba(240, 147, 251, 0.3);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.35), rgba(240, 147, 251, 0.35));
+}
+
+.tag-icon {
+    font-size: 0.85rem;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+    animation: tagIconRotate 3s ease-in-out infinite;
+}
+
+@keyframes tagIconRotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+.tag:hover .tag-icon {
+    animation: tagIconSpin 0.6s ease-in-out;
+}
+
+@keyframes tagIconSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========== 个人语录 ========== */
+.quote-container {
+    position: relative;
+    max-width: 700px;
+    margin: 30px auto 0;
+    padding: 20px 40px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInQuote 1s ease-out 1.2s both;
+}
+
+@keyframes fadeInQuote {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 147, 251, 0.9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+    padding: 0 10px;
+}
+
+.quote-icon-left,
+.quote-icon-right {
+    position: absolute;
+    font-size: 1.5rem;
+    color: var(--accent);
+    opacity: 0.4;
+    animation: quoteFloat 3s ease-in-out infinite;
+}
+
+.quote-icon-left {
+    top: 10px;
+    left: 0;
+}
+
+.quote-icon-right {
+    bottom: 10px;
+    right: 0;
+    animation-delay: 1.5s;
+}
+
+@keyframes quoteFloat {
+    0%, 100% {
+        transform: translateY(0px);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(-5px);
+        opacity: 0.7;
+    }
 }
 
 /* ========== 搜索框 ========== */
@@ -575,8 +730,32 @@ body {
         font-size: 2rem;
     }
     
-    .bio {
-        font-size: 1rem;
+    .tags-container {
+        gap: 10px;
+        margin: 15px auto;
+    }
+    
+    .tag {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .tag-icon {
+        font-size: 0.75rem;
+    }
+    
+    .quote-container {
+        padding: 15px 30px;
+        margin: 20px auto 0;
+    }
+    
+    .quote {
+        font-size: 0.95rem;
+    }
+    
+    .quote-icon-left,
+    .quote-icon-right {
+        font-size: 1.2rem;
     }
     
     .avatar-wrapper {
@@ -626,6 +805,15 @@ body {
     .container {
         padding: 40px 15px;
         gap: 30px;
+    }
+    
+    .tags-container {
+        gap: 8px;
+    }
+    
+    .tag {
+        padding: 6px 14px;
+        font-size: 0.8rem;
     }
     
     .links-grid {
